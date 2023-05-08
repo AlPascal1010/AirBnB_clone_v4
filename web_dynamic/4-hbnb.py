@@ -17,7 +17,8 @@ app = Flask(__name__)
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
-    
+
+
 @app.route('/4-hbnb', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
@@ -35,10 +36,11 @@ def hbnb():
     places = sorted(places, key=lambda k: k.name)
 
     return render_template('4-hbnb.html',
-            states=st_ct,
-            amenities=amenities,
-            places=places, cache_id=uuid.uuid4())
+                           states=st_ct,
+                           amenities=amenities,
+                           places=places, cache_id=uuid.uuid4())
+
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
